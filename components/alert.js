@@ -1,8 +1,14 @@
 import Container from './container'
 import cn from 'classnames'
 import { EXAMPLE_PATH } from '../lib/constants'
+import { useRouter } from 'next/router';
 
 export default function Alert({ preview }) {
+  if (!preview) {
+    return null
+  }
+
+  const { asPath } = useRouter()
   return (
     <div
       className={cn('border-b', {
@@ -16,7 +22,7 @@ export default function Alert({ preview }) {
             <>
               This is page is a preview.{' '}
               <a
-                href="/api/exit-preview"
+                href={`/api/exit-preview?returnto=${encodeURIComponent(asPath)}`}
                 className="underline hover:text-cyan duration-200 transition-colors"
               >
                 Click here
