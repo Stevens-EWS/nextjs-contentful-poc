@@ -25,9 +25,8 @@ export default function Alert({ preview }) {
                 href={`/api/exit-preview?returnto=${encodeURIComponent(asPath)}`}
                 className="underline hover:text-cyan duration-200 transition-colors"
               >
-                Click here
+                Exit preview mode.
               </a>{' '}
-              to exit preview mode.
             </>
           ) : (
             <>
